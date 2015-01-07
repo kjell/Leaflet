@@ -1,0 +1,20 @@
+subclass for MIA to saw and load from tiles.artsmia.org
+  only ask for 'MIA' attribution if `artsmia` isn't somewhere in the URL?
+  pseudocode: miaMap('object/image id', 'div')
+    should take care of sawing the tile if it's not available, reading the image dimensions from the tilejson, building the ap and adding the layer.
+    loading messages too? Could those go into the attribution?
+tests
+rubber band physics
+  don't let image get too far out-of-bounds
+    fire an event when image is dragged to the edge
+remove initial fitBounds animation
+  {animate: false, reset: true} aren't working?
+window.resize handler: keep visible region?
+  I don't like the zoomers resetting to 'full image visible' when the window changes
+  maybe only force a re-zoom when the window gets bigger than the displayed image? But then what about when it gets smaller…
+  Maybe only force reset when the image hasn't yet been interacted with…
+add a control to zoom all the way out?
+  https://github.com/alanshaw/leaflet-zoom-min
+module.exports, npm package?
+check for images that are smaller than the container
+  2014_TDX_MIAArtStories_138
