@@ -31,12 +31,15 @@
 	<script type="text/javascript">
 		var mapopts =  {
 		    center: [35, -122],
-		    zoom : 5.7
+		    zoom : 5.4
 		};
+		// if `zoom` rounds down to less than `grid`'s `minZoom`
+		// `_update` won't happen unless `zoom` increases.
 
 		var map = L.map('map', mapopts);
 
 		var grid = L.gridLayer({
+			minZoom : 5.2,
 			attribution: 'Grid Layer',
 			tileSize: L.point(150, 80)
 		});

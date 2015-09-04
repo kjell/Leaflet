@@ -433,6 +433,16 @@ L.GridLayer = L.Layer.extend({
 		if (zoom === undefined) { zoom = map.getZoom(); }
 		var tileZoom = Math.round(zoom);
 
+		if (tileZoom < this.options.minZoom &&
+		    tileZoom < zoom && zoom >= this.options.minZoom) {
+			console.error("fractional minZoom bug!", {
+				zoom: zoom,
+				tileZoom: tileZoom,
+				minZoom: this.options.minZoom
+			},
+			"tileZoom < minZoom", tileZoom < this.options.minZoom)
+		}
+
 		if (tileZoom > this.options.maxZoom ||
 			tileZoom < this.options.minZoom) { return; }
 
